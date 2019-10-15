@@ -1,5 +1,8 @@
 #!/bin/sh -l
 
+mkdir "$HOME/.ssh"
+touch "$HOME/.ssh/known_hosts"
+
 echo "$SSH_KEY" > "$HOME/.ssh/deploy_key"
 
 chmod 700 "$HOME/.ssh"
