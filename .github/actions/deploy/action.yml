@@ -1,0 +1,4 @@
+name: 'Deploy'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
