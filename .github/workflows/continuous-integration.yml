@@ -7,4 +7,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      -  uses: ./.github/actions/deploy
+      - uses: ./.github/actions/deploy
+        env:
+          ssh_key: ${{ secrets.SSH_KEY }}
