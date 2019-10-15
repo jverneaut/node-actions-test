@@ -5,8 +5,7 @@ const app = express();
 app.get('/', (req, res) => {
   res.json({
     hello: 'world',
-    description: 'GitHub actions c\'est vraiment très très bien.',
-    url: '/app'
+    description: 'GitHub actions c\'est vraiment très très bien.'
   });
 });
 
