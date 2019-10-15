@@ -4,7 +4,15 @@ const app = express();
 
 app.get('/', (req, res) => {
   res.json({
-    hello: 'world'
+    hello: 'world',
+    description: 'GitHub actions c\'est vraiment très très bien.',
+    url: '/app'
+  });
+});
+
+app.get('/app', (req, res) => {
+  res.json({
+    description: 'Ceci est une route.'
   });
 });
 
