@@ -9,9 +9,10 @@ chmod 700 "$HOME/.ssh"
 chmod 600 "$HOME/.ssh/known_hosts"
 chmod 600 "$HOME/.ssh/deploy_key"
 
-eval $(ssh-agent)
+eval "$(ssh-agent -s)"
 ssh-add "$HOME/.ssh/deploy_key"
 
 ssh-keyscan -t rsa 68.183.76.87 >> "$HOME/.ssh/known_hosts"
 
-rsync -r --delete-after --quiet /var/www root@68.183.76.87:/var/www/
+# rsync -r --delete-after --quiet /var/www root@68.183.76.87:/var/www/
+rsync --progress --verbose --recursive --delete-after --quiet -e 'ssh -o StrictHostKeyChecking=no' /var/www root@68.183.76.87:/var/www/
