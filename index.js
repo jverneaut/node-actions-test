@@ -8,4 +8,4 @@ app.get('/', (req, res) => {
   });
 });
 
-app.listen();
+app.listen(80);
