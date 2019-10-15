@@ -1,2 +1,13 @@
-name: Push to server
 on: [push]
+
+jobs:
+  deploy_job:
+    runs-on: ubuntu-latest
+    name: Job to deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - uses: ./
+      - name: Step 2
+        id: hello
+        uses: actions/deploy@v1
