@@ -11,7 +11,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
-          name: artifact
+          name: build
           path: ./
 
   deploy_job:
@@ -24,7 +24,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v1
         with:
-          name: artifact
+          name: build
       - uses: ./.github/actions/deploy
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
