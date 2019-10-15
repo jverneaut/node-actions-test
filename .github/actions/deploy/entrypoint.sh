@@ -14,4 +14,4 @@ ssh-add "$HOME/.ssh/deploy_key"
 
 ssh-keyscan -t rsa 68.183.76.87 >> "$HOME/.ssh/known_hosts"
 
-ssh -o StrictHostKeyChecking=no -A -tt -p ${PORT:-22} root@68.183.76.87 "$*"
+rsync -r --delete-after --quiet /var/www root@68.183.76.87:/var/www/
