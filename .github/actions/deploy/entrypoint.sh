@@ -16,4 +16,4 @@ ssh-keyscan -t rsa 68.183.76.87 >> "$HOME/.ssh/known_hosts"
 
 rsync --progress --verbose --recursive --delete-after --quiet -e 'ssh -o StrictHostKeyChecking=no' /github/workspace/build/ root@68.183.76.87:/var/www/
 
-ssh root@68.183.76.87 'cd /var/www && pm2 stop index.js && pm2 start index.js'
+ssh root@68.183.76.87 'cd /var/www && pm2 kill && pm2 start index.js'
