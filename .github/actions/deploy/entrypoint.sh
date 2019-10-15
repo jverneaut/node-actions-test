@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-echo $SSH_KEY
+echo "$SSH_KEY"
