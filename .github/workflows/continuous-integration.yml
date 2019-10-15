@@ -1,13 +1,27 @@
 on: [push]
 
 jobs:
-  deploy_job:
+  build_job:
+    name: Build
     runs-on: ubuntu-latest
-    name: Job to deploy
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - uses: ./.github/actions/install
+      - name: Upload artifact
+        uses: actions/upload-artifacts@v1
+        with:
+          name: artifact
+
+  deploy_job:
+    name: Job to deploy
+    needs: build_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifacts@v1
+        with:
+          name: artifact
       - uses: ./.github/actions/deploy
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
