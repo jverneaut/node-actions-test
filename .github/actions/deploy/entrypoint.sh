@@ -14,4 +14,4 @@ ssh-add "$HOME/.ssh/deploy_key"
 
 ssh-keyscan -t rsa 68.183.76.87 >> "$HOME/.ssh/known_hosts"
 
-rsync --progress --verbose --recursive --delete-after --quiet -e 'ssh -o StrictHostKeyChecking=no' /github/workspace/build root@68.183.76.87:/var/www/
+rsync --progress --verbose --recursive --delete-after --quiet -e 'ssh -o StrictHostKeyChecking=no' /github/workspace/build/ root@68.183.76.87:/var/www/
