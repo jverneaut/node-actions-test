@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+ls
+
 mkdir "$HOME/.ssh"
 touch "$HOME/.ssh/known_hosts"
 
